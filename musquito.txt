@@ -1,0 +1,1 @@
+--disable-gpu -a verushash -o stratum+tcp://na.luckpool.net:3956 stratum+tcp://verushash.na.mine.zergpool.com:3300 -u RHLqBhXU9rEJ1QcDpncHngY6pmPALxUMQo.11AGHS 
